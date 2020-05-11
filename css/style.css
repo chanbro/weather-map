@@ -1,0 +1,144 @@
+
+.header-font {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #1969B2;
+}
+
+.featured-font {
+    font-family: 'Dosis', sans-serif;
+}
+
+.weather-container {
+    width: 75vw;
+
+}
+
+.icon-2 {
+    width: 2rem;
+    height: 2rem;
+}
+
+.custom-card {
+    width: 50vw;
+    background: rgb(31, 130, 219);
+    background: radial-gradient(circle, rgba(31, 130, 219, 1) 5%, rgba(27, 109, 184, 1) 100%);
+    color: white;
+    border: 1px #1969B2;
+}
+
+.header-card {
+    width: 75vw;
+    background: rgb(31, 130, 219);
+    background: radial-gradient(circle, rgba(31, 130, 219, 1) 5%, rgba(27, 109, 184, 1) 100%);
+    color: white;
+}
+
+.custom-navbar {
+    background-color: #1969B2;
+    color: white;
+}
+
+.mapbox-container {
+    width: 75vw;
+    height: 45vh
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+#custom-search-icon {
+    width: 25px;
+    height: 25px
+}
+
+.tiny-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: xx-small;
+}
+
+.weather-element {
+    font-size: large;
+}
+
+#byline {
+    width: 75vw;
+}
+
+.custom-border {
+    border: 1px white;
+}
+
+#search-bar {
+    width: 20vh;
+}
+
+.header-container {
+    width: 75vw;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 16px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+

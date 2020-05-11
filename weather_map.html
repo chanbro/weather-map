@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map API</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700|Raleway:400,700,800&display=swap"
+          rel="stylesheet">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/4773d21f04.js" crossorigin="anonymous"></script>
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<!--Start Branded Navbar-->
+<div class="navbar sticky-top header-font custom-navbar">
+        <span>
+         <img src="img/loading-icon.gif" width="30" height="30" class="d-inline-block align-top" alt=""
+              id="umbrella-watch">
+            <span id="brand-name">
+                Umbrella Watch
+            </span>
+        </span>
+    <span id="location">Latitude: 29.4241, Longitude: -98.4936</span>
+    <form class="form-inline">
+        <input class="search-bar form-control mx-2" id="lat" type="search" placeholder="29.4241" aria-label="Search"
+               value="">
+        <input class="search-bar form-control mx-2" id="long" type="search" placeholder="-98.4936" aria-label="Search"
+               value="">
+
+        <!--        <input class="search-bar form-control mx-2" id="search-bar" type="search" placeholder="San Antonio, TX" aria-label="Search" value="">-->
+        <button class="btn my-2 my-sm-0" type="button" id="custom-search-btn"><img src="img/search.png"
+                                                                                   alt="Search Button Icon"
+                                                                                   id="custom-search-icon"></button>
+    </form>
+    <!--End Branded Navbar-->
+</div>
+
+<!--Start Main Container-->
+<div class="container mt-6">
+    <!--    <h2 class="header-font d-flex justify-content-center text-center" id="umbrella-verdict">-->
+
+
+    <!--    </h2>-->
+    <div class="header-container mt-5">
+        <h1 class="header-font text-center ">Umbrella Watch</h1>
+        <div class="header-font text-center row justify-content-between mt-4">
+            <div class="col-12 col-md-3">
+                <h4><img src="img/check.png" alt="Checkmark" style="width: 25px; height: 25px"> Fast Results</h4>
+                <hr>
+                <p>Umbrella Watch quickly displays whether or not you need to bring an umbrella with
+                    you
+                    in the next 8 hours based on location</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4><img src="img/check.png" alt="Checkmark" style="width: 25px; height: 25px"> Works Anywhere</h4>
+                <hr>
+                <p>The integration of Mapbox API makes it so that you can check the weather anywhere in the world with coordinates or via a drag-and-drop map marker</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4><img src="img/check.png" alt="Checkmark" style="width: 25px; height: 25px"> Reliable Forecasts</h4>
+                <hr>
+                <p>Weather from Dark Sky API will display an umbrella in the navigation bar if the
+                    forecast shows a 30% chance or greater of precipitation</p>
+            </div>
+            <!--        <div class="d-flex align-items-end mb-0">-->
+            <!--            <span class="header-font pr-2 d-flex flex-row ml-auto" style="font-size: 15px">°f/°c (coming soon!)</span>-->
+            <!--            <label class="switch">-->
+            <!--                <input type="checkbox" id="celsius-slider">-->
+            <!--                <span class="slider round"></span>-->
+            <!--            </label>-->
+            <!--        </div>-->
+        </div>
+    </div>
+    <!--Start Mapbox Contents-->
+    <div class="mapbox-container col-12 mt-2" id='map'>
+        <!--End Mapbox Contents-->
+    </div>
+
+    <!--Start Weather Contents-->
+    <div class="d-flex flex-row justify-content-center weather-container featured-font">
+        <!--Day at a Glace-->
+        <div class="d-flex flex-row justify-content-center  header-card featured-font text-left">
+            <div class="custom-border card-body mt-0" id="daily-container">
+                <img class="icon mx-auto my-0" src="img/loading-icon.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <!--Start Fetched Data from Dark Sky-->
+            </div>
+            <!--End Day Now-->
+        </div>
+        <!--End Right Now-->
+        <div class="custom-card text-left">
+            <div class="custom-border card-body" id="current-container">
+                <img class="icon mx-auto my-0" src="img/loading-icon.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <!--Start Fetched Data from Dark Sky-->
+            </div>
+            <!--End Right Now-->
+        </div>
+
+        <!--Start 8 Hours Contents-->
+        <div class="custom-card text-left">
+            <div class="custom-border card-body" id="later-container">
+                <img class="icon mx-auto my-0" src="img/loading-icon.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <br>
+                <img class="icon-2 mx-auto my-0" src="img/loading-2.gif" alt="Loading Icon">
+                <!--Start Fetched Data from Dark Sky-->
+
+            </div>
+            <!--End 8 Hours Contents-->
+        </div>
+        <!--End Weather Contents-->
+    </div>
+
+    <!--Byline-->
+    <div id="byline">
+        <p class="tiny-text text-right">Page Created by Chaney Brown</p>
+    </div>
+
+    <!--End Main Container-->
+</div>
+
+
+<!--Bootstrap jQuery-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<!--jQuery 2.2.4-->
+<script src="js/jquery-2.2.4.js"></script>
+<!--Bootstrap jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<!--Mapbox jQuery-->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css' rel='stylesheet'/>
+<!--Mapbox Geocoder JS-->
+<script src="js/mapbox-geocoder-utils.js"></script>
+<!--My API Keys-->
+<script src="js/keys.js"></script>
+<!--Custom Javascript/jQuery-->
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

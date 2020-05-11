@@ -1,0 +1,40 @@
+   ***WORKFLOW***
+   1. Create HTML elements/classes/ids
+   2. Create jQuery to display Dark Sky weather on page
+   3. Add Bootstrap design/custom css
+   4. Add Mapbox API
+   5. Geocode marker location
+   6. Link marker location to Dark Sky Coordinates
+   7. Add search function with click/enter listener
+   ***********************************
+   ***EXAMPLE REQUEST***
+   * Dark Sky
+       * "https://api.darksky.net/forecast" "+ darkSkyToken + darkSkyCoordinates
+   * Mapbox
+       * "https://" + mapboxToken + mapboxCoordinates
+   ***********************************
+   ***WISH LIST***
+   * (Site Branding)
+   * (Units Toggle)
+       * us - Imperial units (default)
+       * si - SI units (celsius)
+   * (Location)
+       * "latitude"
+       * "longitude"
+   *(Variable Day of the Week) "daily"
+       * "icon"
+       * "data"
+           * "temperatureHigh"
+           * "temperatureLow"
+           * "precipProbability"
+           * "precipType"
+   * "hourly" <--Referencing a property on the same level as "daily"
+           * "summary"
+   * (Right Now) "currently"
+       * "icon"
+       * "temperature"
+       * "apparentTemperature"
+       * "summary"
+       * "precipProbability"
+       * "precipType"
+   ***********************************
